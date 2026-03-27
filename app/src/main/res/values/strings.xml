@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name1">Cine</string>
+    <string name="app_name2">Fast</string>
+    <string name="app_name">CineFast</string>
+    <string name="onboarding_background">onboarding background</string>
+    <string name="get_started">Get Started!</string>
+    <string name="onboarding_title">Explore now\nto experience the benefits</string>
+    <string name="lotr">Lord of the Rings: Return of the King</string>
+    <string name="dune">Dune: Part 1</string>
+    <string name="barbie">Barbie</string>
+</resources>

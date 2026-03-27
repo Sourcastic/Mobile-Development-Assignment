@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <ImageView
+                android:id="@+id/imgMovieBanner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/onboarding_gradient" />
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/btn_back_bg"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_back" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/txtMovieTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="Hall"
+                        android:textColor="#BFFFFFFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="Date"
+                        android:textColor="#BFFFFFFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:textColor="#BFFFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="1st"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtSelectedDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="Today"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20:00"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:letterSpacing="0.2"
+                android:text="SCREEN"
+                android:textColor="#BFFFFFFF"
+                android:textSize="11sp" />
+
+            <LinearLayout
+                android:id="@+id/seatGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <!-- Row 1 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/s_1_1"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_1_2"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_1_3"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_1_4"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_1_5"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_1_6"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_1_7"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_1_8"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <!-- Row 2 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/s_2_1"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_2_2"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_2_3"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_2_4"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_2_5"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_2_6"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_2_7"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_2_8"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <!-- Row 3 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/s_3_1"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_3_2"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_3_3"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_3_4"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_3_5"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_3_6"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_3_7"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_3_8"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <!-- Row 4 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/s_4_1"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_4_2"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_4_3"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_4_4"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_4_5"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_4_6"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_4_7"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_4_8"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <!-- Row 5 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/s_5_1"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_5_2"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_5_3"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_5_4"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_5_5"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_5_6"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_5_7"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_5_8"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <!-- Row 6 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/s_6_1"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_6_2"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_6_3"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_6_4"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_6_5"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_6_6"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_6_7"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_6_8"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+                <!-- Row 7 -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/s_7_1"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_7_2"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_7_3"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_7_4"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/seat_booked"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <View
+                        android:id="@+id/s_7_5"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_7_6"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_7_7"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <View
+                        android:id="@+id/s_7_8"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/seat_available"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/seat_booked" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="Booked"
+                    android:textColor="#BFFFFFFF"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/seat_selected" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="Yours"
+                    android:textColor="#BFFFFFFF"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/seat_available" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available"
+                    android:textColor="#BFFFFFFF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtSeatSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="0 seats selected  •  Total: $0.00"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnBookSeats"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#E50914"
+                    android:text="Book Seats"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="27dp" />
+
+                <Button
+                    android:id="@+id/btnProceedSnacks"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FFFFFF"
+                    android:enabled="false"
+                    android:text="Proceed to Snacks"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="27dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
