@@ -19,9 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Onboarding" />
-        <activity android:name=".Home" />
-        <activity android:name=".seatSelection" />
-        <activity android:name=".Snacks" />
         <activity android:name=".TicketSummary" />
         <activity android:name=".MainActivity" />
 

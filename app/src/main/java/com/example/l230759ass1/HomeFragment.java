@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ViewPager2 viewPager = view.findViewById(R.id.viewPager);
-        TabLayout tabLayout  = view.findViewById(R.id.tabLayout);
+        TabLayout tabLayout = view.findViewById(R.id.tabLayout);
 
         viewPager.setAdapter(new HomeTabAdapter(requireActivity()));
 
@@ -37,7 +37,9 @@ public class HomeFragment extends Fragment {
     }
 
     static class HomeTabAdapter extends FragmentStateAdapter {
-        public HomeTabAdapter(@NonNull FragmentActivity fa) { super(fa); }
+        public HomeTabAdapter(@NonNull FragmentActivity fa) {
+            super(fa);
+        }
 
         @NonNull
         @Override
@@ -46,6 +48,8 @@ public class HomeFragment extends Fragment {
         }
 
         @Override
-        public int getItemCount() { return 2; }
+        public int getItemCount() {
+            return 2;
+        }
     }
 }

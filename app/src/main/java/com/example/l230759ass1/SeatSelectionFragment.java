@@ -33,17 +33,16 @@ public class SeatSelectionFragment extends Fragment {
     };
 
     private final boolean[][] originalBookedSeats = {
-            {false, false, true,  false, false, true,  false, false},
-            {true,  false, false, false, true,  true,  false, false},
-            {false, false, false, false, false, false, false, true },
-            {false, true,  true,  false, false, false, false, false},
-            {false, false, false, true,  false, false, true,  true },
-            {true,  false, false, false, true,  false, false, false},
-            {false, false, true,  true,  false, false, false, false}
+            {false, false, true, false, false, true, false, false},
+            {true, false, false, false, true, true, false, false},
+            {false, false, false, false, false, false, false, true},
+            {false, true, true, false, false, false, false, false},
+            {false, false, false, true, false, false, true, true},
+            {true, false, false, false, true, false, false, false},
+            {false, false, true, true, false, false, false, false}
     };
-
-    private boolean[][] bookedSeats;
     private final boolean[][] selectedSeats = new boolean[7][8];
+    private boolean[][] bookedSeats;
     private View[][] seatViews;
 
     private TextView txtSeatSummary;
@@ -68,9 +67,9 @@ public class SeatSelectionFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         MainActivity activity = (MainActivity) requireActivity();
-        movieName   = activity.getMovieName();
-        date        = activity.getSelectedDate();
-        trailerUrl  = activity.getTrailerUrl();
+        movieName = activity.getMovieName();
+        date = activity.getSelectedDate();
+        trailerUrl = activity.getTrailerUrl();
         isComingSoon = activity.getIsComingSoon();
 
         TextView txtTitle = view.findViewById(R.id.txtMovieTitle);
@@ -80,19 +79,18 @@ public class SeatSelectionFragment extends Fragment {
         txtDate.setText(date != null ? date : "Today");
 
         ImageView banner = view.findViewById(R.id.imgMovieBanner);
-        if ("Lord of the Rings: Return of the King".equals(movieName)) {
-            banner.setImageResource(R.drawable.rotk);
-        } else if ("Dune: Part 1".equals(movieName)) {
-            banner.setImageResource(R.drawable.dune1);
+        Movie movie = ((MainActivity) requireActivity()).getCurrentMovie();
+        if (movie != null) {
+            banner.setImageResource(movie.getPosterRes());
         } else {
             banner.setImageResource(R.drawable.barbie);
         }
 
-        txtSeatSummary   = view.findViewById(R.id.txtSeatSummary);
+        txtSeatSummary = view.findViewById(R.id.txtSeatSummary);
         btnProceedSnacks = view.findViewById(R.id.btnProceedSnacks);
-        btnBookSeats     = view.findViewById(R.id.btnBookSeats);
-        btnComingSoon    = view.findViewById(R.id.btnComingSoon);
-        btnWatchTrailer  = view.findViewById(R.id.btnWatchTrailer);
+        btnBookSeats = view.findViewById(R.id.btnBookSeats);
+        btnComingSoon = view.findViewById(R.id.btnComingSoon);
+        btnWatchTrailer = view.findViewById(R.id.btnWatchTrailer);
 
         ImageButton btnBack = view.findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> requireActivity().onBackPressed());
@@ -100,6 +98,7 @@ public class SeatSelectionFragment extends Fragment {
         bookedSeats = new boolean[7][8];
         for (int r = 0; r < 7; r++)
             bookedSeats[r] = originalBookedSeats[r].clone();
+
 
         if (isComingSoon) {
             setupComingSoonMode(view);

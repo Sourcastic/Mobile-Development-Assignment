@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#000000">
+    android:background="#000000"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
             android:text="Cine"
             android:textColor="#E50914"
             android:textSize="28sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
             android:text="FAST"
             android:textColor="@android:color/white"
             android:textSize="28sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
@@ -34,15 +34,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000000"
-        app:tabTextColor="#888888"
-        app:tabSelectedTextColor="#FFFFFF"
         app:tabIndicatorColor="#E50914"
-        app:tabTextAppearance="@android:style/TextAppearance.Medium"/>
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabTextAppearance="@android:style/TextAppearance.Medium"
+        app:tabTextColor="#888888" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
 </LinearLayout>

@@ -11,21 +11,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class TicketSummary extends AppCompatActivity {
 
+    private static final double TICKET_PRICE = 12.50;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ticket_summary);
 
-        String movieName    = getIntent().getStringExtra("movie_name");
+        String movieName = getIntent().getStringExtra("movie_name");
         String selectedDate = getIntent().getStringExtra("selected_date");
-        int seatCount       = getIntent().getIntExtra("seat_count", 0);
-        double seatTotal    = getIntent().getDoubleExtra("seat_total", 0.0);
-        String seatLabels   = getIntent().getStringExtra("seat_labels");
-        double snacksTotal  = getIntent().getDoubleExtra("snacks_total", 0.0);
-        int qtyPopcorn      = getIntent().getIntExtra("qty_popcorn", 0);
-        int qtyNachos       = getIntent().getIntExtra("qty_nachos", 0);
-        int qtyDrink        = getIntent().getIntExtra("qty_drink", 0);
-        int qtyCandy        = getIntent().getIntExtra("qty_candy", 0);
+        int seatCount = getIntent().getIntExtra("seat_count", 0);
+        double seatTotal = getIntent().getDoubleExtra("seat_total", 0.0);
+        String seatLabels = getIntent().getStringExtra("seat_labels");
+        double snacksTotal = getIntent().getDoubleExtra("snacks_total", 0.0);
+        int qtyPopcorn = getIntent().getIntExtra("qty_popcorn", 0);
+        int qtyNachos = getIntent().getIntExtra("qty_nachos", 0);
+        int qtyDrink = getIntent().getIntExtra("qty_drink", 0);
+        int qtyCandy = getIntent().getIntExtra("qty_candy", 0);
 
         ImageView poster = findViewById(R.id.imgMoviePoster);
         if (getString(R.string.lotr).equals(movieName)) {
@@ -74,11 +76,11 @@ public class TicketSummary extends AppCompatActivity {
 
         StringBuilder snacksList = new StringBuilder();
         if (qtyPopcorn > 0) snacksList.append("x").append(qtyPopcorn).append(" Popcorn\n");
-        if (qtyNachos  > 0) snacksList.append("x").append(qtyNachos).append(" Nachos\n");
-        if (qtyDrink   > 0) snacksList.append("x").append(qtyDrink).append(" Soft Drink\n");
-        if (qtyCandy   > 0) snacksList.append("x").append(qtyCandy).append(" Candy Mix\n");
+        if (qtyNachos > 0) snacksList.append("x").append(qtyNachos).append(" Nachos\n");
+        if (qtyDrink > 0) snacksList.append("x").append(qtyDrink).append(" Soft Drink\n");
+        if (qtyCandy > 0) snacksList.append("x").append(qtyCandy).append(" Candy Mix\n");
 
-        TextView txtSnacksList  = findViewById(R.id.txtSnacksList);
+        TextView txtSnacksList = findViewById(R.id.txtSnacksList);
         TextView txtSnacksPrice = findViewById(R.id.txtSnacksPrice);
 
         if (snacksList.length() == 0) {
@@ -105,8 +107,6 @@ public class TicketSummary extends AppCompatActivity {
             startActivity(Intent.createChooser(shareIntent, "Send Ticket via"));
         });
     }
-
-    private static final double TICKET_PRICE = 12.50;
 
     private String buildTicketMessage(String movie, String date, String seatLabels,
                                       double seatTotal, String snacks,

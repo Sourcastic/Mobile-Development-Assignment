@@ -15,9 +15,23 @@ public class Movie {
         this.trailerUrl = trailerUrl;
     }
 
-    public String getName()      { return name; }
-    public String getGenre()     { return genre; }
-    public int getDuration()     { return duration; }
-    public int getPosterRes()    { return posterRes; }
-    public String getTrailerUrl(){ return trailerUrl; }
+    public String getName() {
+        return name;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public int getPosterRes() {
+        return posterRes;
+    }
+
+    public String getTrailerUrl() {
+        return trailerUrl;
+    }
 }

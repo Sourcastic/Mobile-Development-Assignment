@@ -1,55 +1,65 @@
 package com.example.l230759ass1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
+import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class SnacksFragment extends Fragment {
 
-    private String selectedDate = "Today";
+    private ArrayList<Snack> snackList;
 
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_now_showing, container, false);
+    public SnacksFragment() {
     }
 
+    @Nullable
     @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        RadioGroup rgDate = view.findViewById(R.id.rgDateToggle);
-        rgDate.setOnCheckedChangeListener((group, checkedId) ->
-                selectedDate = checkedId == R.id.rbTomorrow ? "Tomorrow" : "Today");
+        View view = inflater.inflate(R.layout.fragment_snacks, container, false);
 
-        ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("Lord of the Rings: Return of the King",
-                "Fantasy", 201, R.drawable.rotk,
-                "https://www.youtube.com/watch?v=r5X-hFf6Bwo"));
-        movies.add(new Movie("Dune: Part 1",
-                "Sci-Fi", 155, R.drawable.dune1,
-                "https://www.youtube.com/watch?v=n9xhJrPXop4"));
-        movies.add(new Movie("Barbie",
-                "Comedy", 114, R.drawable.barbie,
-                "https://www.youtube.com/watch?v=pBk4NYhWNMM"));
+        ListView listView = view.findViewById(R.id.lvSnacks);
+        Button btnContinue = view.findViewById(R.id.btnConfirm);
 
+        snackList = new ArrayList<>();
 
+        snackList.add(new Snack(R.drawable.popcorn, "Popcorn", 5.00));
+        snackList.add(new Snack(R.drawable.nachos, "Nachos", 6.50));
+        snackList.add(new Snack(R.drawable.soft_drink, "Soft Drink", 3.00));
+        snackList.add(new Snack(R.drawable.candy_mix, "Candy Mix", 4.00));
 
-        RecyclerView rv = view.findViewById(R.id.rvNowShowing);
-        rv.setLayoutManager(new LinearLayoutManager(requireContext()));
-        rv.setAdapter(new MovieAdapter(movies, true, movie -> {
+        SnackAdapter adapter = new SnackAdapter(requireContext(), snackList);
+        listView.setAdapter(adapter);
+
+        btnContinue.setOnClickListener(v -> {
+
+            int qtyPopcorn = snackList.get(0).getQuantity();
+            int qtyNachos = snackList.get(1).getQuantity();
+            int qtyDrink = snackList.get(2).getQuantity();
+            int qtyCandy = snackList.get(3).getQuantity();
+
+            double total = 0;
+            for (Snack s : snackList) {
+                total += s.getPrice() * s.getQuantity();
+            }
+
             MainActivity activity = (MainActivity) requireActivity();
-            activity.setMovieData(movie.getName(), selectedDate);
-            activity.navigateTo(new SeatSelectionFragment(), true);
-        }));
+            activity.setSnacksData(total, qtyPopcorn, qtyNachos, qtyDrink, qtyCandy);
+
+            startActivity(new Intent(requireContext(), TicketSummary.class));
+        });
+
+        return view;
     }
 }

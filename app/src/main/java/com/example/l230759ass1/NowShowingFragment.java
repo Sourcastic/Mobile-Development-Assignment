@@ -43,12 +43,11 @@ public class NowShowingFragment extends Fragment {
                 "https://www.youtube.com/watch?v=pBk4NYhWNMM"));
 
 
-
         RecyclerView rv = view.findViewById(R.id.rvNowShowing);
         rv.setLayoutManager(new LinearLayoutManager(requireContext()));
         rv.setAdapter(new MovieAdapter(movies, true, movie -> {
             MainActivity activity = (MainActivity) requireActivity();
-            activity.setMovieData(movie.getName(), selectedDate);
+            activity.setMovieData(movie.getName(), selectedDate, movie);
             activity.navigateTo(new SeatSelectionFragment(), true);
         }));
     }

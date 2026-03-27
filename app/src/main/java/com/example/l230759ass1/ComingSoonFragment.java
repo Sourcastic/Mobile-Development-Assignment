@@ -31,10 +31,10 @@ public class ComingSoonFragment extends Fragment {
 
         RecyclerView rv = view.findViewById(R.id.rvComingSoon);
         rv.setLayoutManager(new LinearLayoutManager(requireContext()));
-        rv.setAdapter(new MovieAdapter(movies, false, movie -> {
-            MainActivity act = (MainActivity) requireActivity();
-            act.setMovieData(movie.getName(), null, movie.getTrailerUrl(), true);
-            act.navigateTo(new SeatSelectionFragment(), true);
+        rv.setAdapter(new MovieAdapter(movies, true, movie -> {
+            MainActivity activity = (MainActivity) requireActivity();
+            activity.setMovieData(movie.getName(), "Coming Soon", movie);
+            activity.navigateTo(new SeatSelectionFragment(), true);
         }));
     }
 }

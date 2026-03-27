@@ -16,14 +16,9 @@ import java.util.ArrayList;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    public interface OnBookClickListener {
-        void onBookClick(Movie movie);
-    }
-
     private final ArrayList<Movie> movies;
     private final boolean showBookButton;
     private final OnBookClickListener bookClickListener;
-
     public MovieAdapter(ArrayList<Movie> movies, boolean showBookButton,
                         OnBookClickListener bookClickListener) {
         this.movies = movies;
@@ -47,21 +42,27 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         holder.txtName.setText(movie.getName());
         holder.txtGenreDuration.setText(movie.getGenre() + " • " + movie.getDuration() + " min");
 
-        if (showBookButton) {
-            holder.btnBookSeats.setVisibility(View.VISIBLE);
-            holder.btnBookSeats.setOnClickListener(v -> bookClickListener.onBookClick(movie));
-        } else {
-            holder.btnBookSeats.setVisibility(View.GONE);
-        }
-
         holder.btnTrailer.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(movie.getTrailerUrl()));
             v.getContext().startActivity(intent);
         });
+
+        if (showBookButton) {
+            holder.btnBookSeats.setVisibility(View.VISIBLE);
+            holder.btnBookSeats.setOnClickListener(v -> bookClickListener.onBookClick(movie));
+        } else {
+            holder.btnBookSeats.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
-    public int getItemCount() { return movies.size(); }
+    public int getItemCount() {
+        return movies.size();
+    }
+
+    public interface OnBookClickListener {
+        void onBookClick(Movie movie);
+    }
 
     static class MovieViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPoster;
@@ -70,11 +71,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
 
         public MovieViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgPoster        = itemView.findViewById(R.id.imgPoster);
-            txtName          = itemView.findViewById(R.id.txtMovieName);
+            imgPoster = itemView.findViewById(R.id.imgPoster);
+            txtName = itemView.findViewById(R.id.txtMovieName);
             txtGenreDuration = itemView.findViewById(R.id.txtGenreDuration);
-            btnBookSeats     = itemView.findViewById(R.id.btnBookSeats);
-            btnTrailer       = itemView.findViewById(R.id.btnTrailer);
+            btnBookSeats = itemView.findViewById(R.id.btnBookSeats);
+            btnTrailer = itemView.findViewById(R.id.btnTrailer);
         }
     }
 }

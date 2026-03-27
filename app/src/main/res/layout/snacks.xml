@@ -121,14 +121,14 @@
                                 android:id="@+id/btnMinusPopcorn"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_minus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="−"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_minus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtQtyPopcorn"
@@ -144,14 +144,14 @@
                                 android:id="@+id/btnPlusPopcorn"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_plus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="+"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_plus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -222,14 +222,14 @@
                                 android:id="@+id/btnMinusNachos"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_minus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="−"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_minus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtQtyNachos"
@@ -245,14 +245,14 @@
                                 android:id="@+id/btnPlusNachos"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_plus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="+"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_plus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -323,14 +323,14 @@
                                 android:id="@+id/btnMinusDrink"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_minus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="−"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_minus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtQtyDrink"
@@ -346,14 +346,14 @@
                                 android:id="@+id/btnPlusDrink"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_plus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="+"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_plus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -424,14 +424,14 @@
                                 android:id="@+id/btnMinusCandy"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_minus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="−"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_minus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/txtQtyCandy"
@@ -447,14 +447,14 @@
                                 android:id="@+id/btnPlusCandy"
                                 android:layout_width="32dp"
                                 android:layout_height="32dp"
+                                android:background="@drawable/btn_plus"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:gravity="center"
                                 android:text="+"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp"
-                                android:textStyle="bold"
-                                android:gravity="center"
-                                android:background="@drawable/btn_plus"
-                                android:clickable="true"
-                                android:focusable="true"/>
+                                android:textStyle="bold" />
 
                         </LinearLayout>
                     </LinearLayout>
