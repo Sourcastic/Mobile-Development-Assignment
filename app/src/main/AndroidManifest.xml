@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Onboarding" />
-        <activity android:name=".TicketSummary" />
         <activity android:name=".MainActivity" />
 
     </application>
