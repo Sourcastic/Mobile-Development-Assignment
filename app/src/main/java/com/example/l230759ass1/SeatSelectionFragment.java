@@ -122,24 +122,42 @@ public class SeatSelectionFragment extends Fragment {
 
         btnProceedSnacks.setOnClickListener(v -> {
             int count = countSelected();
-            double total = count * TICKET_PRICE;
+            double seatTotal = count * TICKET_PRICE;
             String seatLabels = buildSeatLabels();
             lockSeats();
+
+
+            SnacksFragment snacksFragment = SnacksFragment.newInstance(
+                    movieName,
+                    date,
+                    count,
+                    seatTotal,
+                    seatLabels
+            );
+
             MainActivity activity = (MainActivity) requireActivity();
-            activity.setSeatData(count, total, seatLabels);
-            activity.navigateTo(new SnacksFragment(), true);
+            activity.navigateTo(snacksFragment, true);
         });
 
         btnBookSeats.setOnClickListener(v -> {
             int count = countSelected();
-            double total = count * TICKET_PRICE;
+            double seatTotal = count * TICKET_PRICE;
             String seatLabels = buildSeatLabels();
             lockSeats();
-            Toast.makeText(requireContext(), "Booking Confirmed!", Toast.LENGTH_SHORT).show();
+
+
+            TicketSummaryFragment tsFragment = TicketSummaryFragment.newInstance(
+                    movieName,
+                    date,
+                    count,
+                    seatTotal,
+                    seatLabels,
+                    0.0,
+                    0, 0, 0, 0
+            );
+
             MainActivity activity = (MainActivity) requireActivity();
-            activity.setSeatData(count, total, seatLabels);
-            activity.setSnacksData(0, 0, 0, 0, 0);
-            activity.navigateTo(new TicketSummaryFragment(), true);
+            activity.navigateTo(tsFragment, true);
         });
     }
 

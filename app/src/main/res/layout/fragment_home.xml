@@ -27,6 +27,19 @@
             android:textColor="@android:color/white"
             android:textSize="28sp"
             android:textStyle="bold" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imgMenuDots"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/more"
+            android:clickable="true"
+            android:focusable="true" />
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout

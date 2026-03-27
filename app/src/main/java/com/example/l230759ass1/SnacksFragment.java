@@ -16,9 +16,45 @@ import java.util.ArrayList;
 
 public class SnacksFragment extends Fragment {
 
+    private static final String ARG_MOVIE = "arg_movie";
+    private static final String ARG_DATE = "arg_date";
+    private static final String ARG_SEAT_COUNT = "arg_seat_count";
+    private static final String ARG_SEAT_TOTAL = "arg_seat_total";
+    private static final String ARG_SEAT_LABELS = "arg_seat_labels";
+
+    private String movieName;
+    private String date;
+    private int seatCount;
+    private double seatTotal;
+    private String seatLabels;
+
     private ArrayList<Snack> snackList;
 
-    public SnacksFragment() {
+    public SnacksFragment() { }
+
+    public static SnacksFragment newInstance(String movieName, String date,
+                                             int seatCount, double seatTotal, String seatLabels) {
+        SnacksFragment fragment = new SnacksFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_MOVIE, movieName);
+        args.putString(ARG_DATE, date);
+        args.putInt(ARG_SEAT_COUNT, seatCount);
+        args.putDouble(ARG_SEAT_TOTAL, seatTotal);
+        args.putString(ARG_SEAT_LABELS, seatLabels);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            movieName = getArguments().getString(ARG_MOVIE);
+            date = getArguments().getString(ARG_DATE);
+            seatCount = getArguments().getInt(ARG_SEAT_COUNT);
+            seatTotal = getArguments().getDouble(ARG_SEAT_TOTAL);
+            seatLabels = getArguments().getString(ARG_SEAT_LABELS);
+        }
     }
 
     @Nullable
@@ -33,7 +69,6 @@ public class SnacksFragment extends Fragment {
         Button btnContinue = view.findViewById(R.id.btnConfirm);
 
         snackList = new ArrayList<>();
-
         snackList.add(new Snack(R.drawable.popcorn, "Popcorn", 5.00));
         snackList.add(new Snack(R.drawable.nachos, "Nachos", 6.50));
         snackList.add(new Snack(R.drawable.soft_drink, "Soft Drink", 3.00));
@@ -43,21 +78,31 @@ public class SnacksFragment extends Fragment {
         listView.setAdapter(adapter);
 
         btnContinue.setOnClickListener(v -> {
-
             int qtyPopcorn = snackList.get(0).getQuantity();
             int qtyNachos = snackList.get(1).getQuantity();
             int qtyDrink = snackList.get(2).getQuantity();
             int qtyCandy = snackList.get(3).getQuantity();
 
-            double total = 0;
+            double snacksTotal = 0;
             for (Snack s : snackList) {
-                total += s.getPrice() * s.getQuantity();
+                snacksTotal += s.getPrice() * s.getQuantity();
             }
 
-            MainActivity activity = (MainActivity) requireActivity();
-            activity.setSnacksData(total, qtyPopcorn, qtyNachos, qtyDrink, qtyCandy);
+            TicketSummaryFragment tsFragment = TicketSummaryFragment.newInstance(
+                    movieName,
+                    date,
+                    seatCount,
+                    seatTotal,
+                    seatLabels,
+                    snacksTotal,
+                    qtyPopcorn,
+                    qtyNachos,
+                    qtyDrink,
+                    qtyCandy
+            );
 
-            startActivity(new Intent(requireContext(), TicketSummary.class));
+            MainActivity activity = (MainActivity) requireActivity();
+            activity.navigateTo(tsFragment, true);
         });
 
         return view;
