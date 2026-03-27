@@ -23,6 +23,7 @@
         <activity android:name=".seatSelection" />
         <activity android:name=".Snacks" />
         <activity android:name=".TicketSummary" />
+        <activity android:name=".MainActivity" />
 
     </application>
 

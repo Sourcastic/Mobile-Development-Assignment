@@ -1,3 +1,4 @@
+/*
 package com.example.l230759ass1;
 
 import android.content.Intent;
@@ -27,7 +28,7 @@ public class Home extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.fragment_home);
 
         RadioGroup rgDate = findViewById(R.id.rgDateToggle);
         rgDate.setOnCheckedChangeListener((group, checkedId) -> {
@@ -52,4 +53,4 @@ public class Home extends AppCompatActivity {
         btnBook3.setOnClickListener(v -> bookSeats("Barbie"));
         btnTrailer3.setOnClickListener(v -> openTrailer("https://www.youtube.com/watch?v=pBk4NYhWNMM"));
     }
-}
+}*/

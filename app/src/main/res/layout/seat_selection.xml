@@ -756,37 +756,66 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="16dp">
 
                 <Button
                     android:id="@+id/btnBookSeats"
                     android:layout_width="0dp"
                     android:layout_height="54dp"
-                    android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#E50914"
+                    android:layout_marginEnd="10dp"
                     android:text="Book Seats"
                     android:textAllCaps="false"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
                     android:textStyle="bold"
-                    app:cornerRadius="27dp" />
+                    android:textSize="15sp"
+                    android:backgroundTint="#E50914"
+                    app:cornerRadius="27dp"/>
 
                 <Button
                     android:id="@+id/btnProceedSnacks"
                     android:layout_width="0dp"
                     android:layout_height="54dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:enabled="false"
                     android:text="Proceed to Snacks"
                     android:textAllCaps="false"
                     android:textColor="#000000"
-                    android:textSize="15sp"
                     android:textStyle="bold"
-                    app:cornerRadius="27dp" />
+                    android:textSize="15sp"
+                    android:backgroundTint="#FFFFFF"
+                    app:cornerRadius="27dp"
+                    android:enabled="false"/>
+
+                <Button
+                    android:id="@+id/btnComingSoon"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:text="Coming Soon"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:backgroundTint="#555555"
+                    android:visibility="gone"
+                    app:cornerRadius="27dp"/>
+
+                <Button
+                    android:id="@+id/btnWatchTrailer"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:text="▶ Watch Trailer"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:backgroundTint="#FFFFFF"
+                    android:visibility="gone"
+                    app:cornerRadius="27dp"/>
 
             </LinearLayout>
         </LinearLayout>
